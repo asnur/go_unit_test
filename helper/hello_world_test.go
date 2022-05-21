@@ -19,6 +19,10 @@ func TestMain(m *testing.M) {
 
 func TestHelloWorld(t *testing.T) {
 	assert.Equal(t, "Hello, World!", HelloWorld("World"))
+	//Sub Test
+	t.Run("asnur", func(t *testing.T) {
+		assert.Equal(t, "Hello, asnur!", HelloWorld("asnur"))
+	})
 }
 
 func TestHelloDani(t *testing.T) {
