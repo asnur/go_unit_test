@@ -50,3 +50,27 @@ func TestTableHello(t *testing.T) {
 		})
 	}
 }
+
+//Benchmark
+func BenchmarkHelloWorld(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		HelloWorld("Dani")
+	}
+}
+
+//Sub Bencmhmark and Table Benchmark
+func BenchmarkHelloWorld_Sub(b *testing.B) {
+	var bench = []struct {
+		name string
+	}{
+		{"asnur"},
+		{"Dani"},
+	}
+	for _, bb := range bench {
+		b.Run(bb.name, func(b *testing.B) {
+			for i := 0; i < b.N; i++ {
+				HelloWorld(bb.name)
+			}
+		})
+	}
+}
