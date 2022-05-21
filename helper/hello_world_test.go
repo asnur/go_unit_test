@@ -34,3 +34,19 @@ func TestSkip(t *testing.T) {
 		t.Skip("skipping test")
 	}
 }
+
+//Table Test Consept
+func TestTableHello(t *testing.T) {
+	var tests = []struct {
+		name string
+		want string
+	}{
+		{"asnur", "Hello, asnur!"},
+		{"Dani", "Hello, Dani!"},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			assert.Equal(t, tt.want, HelloWorld(tt.name))
+		})
+	}
+}
